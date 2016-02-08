@@ -1,0 +1,28 @@
+Game Idea:
+
+Two cars,
+
+One AI controlled using search and sort algorithms
+
+One Player controlled.
+
+Car parts are placed upon the map, the AI searches for the cheapest parts and creates a mpa of each part, price and location of parts
+
+Upon picking up a part, either from player or AI, the AI car then recreates the item map and re-searches for the new cheapest/closest part they need.
+
+Upon picking up all th parts the player/AI must then get to the ending point for the final sorting algorithm to take place.
+
+All parts are sorted alphabetically and softed by each items price, adding all of them together to create a final car price.
+
+
+Bounderies are found in the form of buildings/map bounderies.
+
+Items are placed randomly around the map in player accessible locations.
+
+Some places that player can access but the AI cannot.
+
+TODO: Everything
+
+
+
+
