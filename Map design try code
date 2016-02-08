@@ -1,0 +1,61 @@
+import pygame, sys
+from pygame.locals import *
+
+#constants representing colours
+BLACK = (0,    0, 0 )
+BROWN = (153, 76, 0 )
+GREEN = (0,  255, 0 )
+BLUE  = (0,  0,  255)
+
+#constants represeting the different resources
+GRASS= 0
+ROAD1 = 1
+ROAD2 = 2
+
+#a dictionary linking resources to textures
+textures = {
+                GRASS : pygame.image.load('grass.jpg'),
+                ROAD1 : pygame.image.load('road.jpg'),
+                ROAD2 : pygame.image.load('road2.jpg')
+
+            }
+
+# a list to representing our tilemap
+tilemap = [
+            [ROAD1, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS],
+            [ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, GRASS],
+            [GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD1, GRASS],
+            [GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD1, GRASS],
+            [ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, GRASS, GRASS, ROAD1, GRASS],
+            [ROAD2, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD1, GRASS],
+            [ROAD2, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD1, GRASS],
+            [ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD1, GRASS]
+            ]
+
+#useful game dimensions
+TILESIZE = 80
+MAPWIDTH = 11
+MAPHEIGHT = 8
+
+#set up the display
+pygame.init()
+DISPLAYSURF = pygame.display.set_mode((MAPWIDTH*TILESIZE, MAPHEIGHT*TILESIZE))
+
+while True:
+    #get all the user events
+    for event in pygame.event.get():
+        #if the user wants to quit
+        if event.type == QUIT:
+            #end the game and close the window
+            pygame.quit()
+            sys.exit()
+
+    #loop through each row
+    for row in range(MAPHEIGHT):
+        #loop through each column in the row
+        for column in range(MAPWIDTH):
+           #draw the resource at that position in the tilemap, using correct image
+            DISPLAYSURF.blit(textures[tilemap[row][column]], (column*TILESIZE, row*TILESIZE))
+
+    #update the display
+    pygame.display.update()
