@@ -1,0 +1,17 @@
+Additional idea list:
+1. Have the player collect extra parts such as spoilers, hydraulic and other accessories. 
+Adds price onto the car and once they have collected them all then the apperance of the car could change.
+
+2. Put high value parts that the player would have to travel to another map to be able to collect 
+(e.g. could have a tile that would render a different variation of the main map off screen)
+
+3. Add a time limit that they player would have to collect the main and additional parts for, 
+the closer the time gets to 0 then the quicker the AI will collect the parts.
+
+4. Add difficult maps which would be optional to the player, 
+maybe add various different tiles that are placed in one section of the map that the player could optionally travel to. 
+This could give us more options to be able to add in search and sort algorithms. 
+
+5. Could add a mechanic that would be able to fit the parts progressively as the player collects them, 
+although doing this would deplete the funds that they have collected and force them to go and collect more parts, 
+but doing this also drastically increases the speed of the car so collecting parts would be easier. 
