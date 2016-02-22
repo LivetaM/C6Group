@@ -9,40 +9,47 @@ BLUE  = (0,  0,  255)
 
 #constants represeting the different resources
 GRASS= 0
-ROAD1 = 1
-ROAD2 = 2
-BUILD = 3
+ROAD = 1
+BUILD = 2
 
 #a dictionary linking resources to textures
 textures = {
                 GRASS : pygame.image.load('grass.jpg'),
-                ROAD1 : pygame.image.load('road.jpg'),
-                ROAD2 : pygame.image.load('road2.jpg'),
+                ROAD : pygame.image.load('road.jpg'),
                 BUILD : pygame.image.load('buildinggrass.jpg')
 
             }
 
 # a list to representing our tilemap
 tilemap = [
-            [ GRASS, GRASS, GRASS, ROAD1, BUILD, GRASS, GRASS, BUILD, GRASS, GRASS, GRASS, BUILD, GRASS, GRASS, GRASS, GRASS, BUILD, ROAD2, ROAD2, ROAD2],
-            [ GRASS, GRASS, GRASS, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, BUILD, GRASS, GRASS, GRASS, ROAD2, BUILD, ROAD2],
-            [ BUILD, GRASS, GRASS, GRASS, ROAD2, BUILD, GRASS, GRASS, GRASS, BUILD, GRASS, GRASS, ROAD1, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, GRASS, ROAD2],
-            [ ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, GRASS, GRASS, GRASS, GRASS, ROAD1, BUILD, GRASS, GRASS, BUILD, GRASS, GRASS, ROAD2],
-            [ ROAD2, GRASS, GRASS, GRASS, GRASS, GRASS, BUILD, ROAD2, GRASS, GRASS, GRASS, BUILD, ROAD1, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2],
-            [ ROAD2, GRASS, GRASS, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, BUILD, GRASS, GRASS, GRASS, ROAD1, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, BUILD],
-            [ ROAD2, BUILD, GRASS, ROAD2, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD1, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, GRASS, GRASS],
-            [ ROAD2, ROAD2, ROAD2, ROAD2, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD1, BUILD, GRASS, GRASS, GRASS, ROAD2, GRASS, GRASS],
-            [ ROAD2, GRASS, GRASS, ROAD2, GRASS, BUILD, GRASS, GRASS, GRASS, GRASS, BUILD, GRASS, ROAD1, GRASS, GRASS, GRASS, BUILD, ROAD2, GRASS, GRASS],
-            [ ROAD2, GRASS, GRASS, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, ROAD1, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, BUILD, GRASS],
-            [ BUILD, GRASS, GRASS, BUILD, GRASS, GRASS, GRASS, BUILD, ROAD2, GRASS, GRASS, BUILD, GRASS, GRASS, GRASS, GRASS, BUILD, ROAD2, GRASS, GRASS],
-            [ GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD2, BUILD, GRASS, GRASS, GRASS, BUILD, GRASS, GRASS, GRASS, ROAD2, GRASS, GRASS],
-            [ GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, GRASS, ROAD2, ROAD2, ROAD2, ROAD2, ROAD1, ROAD2, ROAD2, ROAD2, ROAD2, ROAD2, BUILD, GRASS],
+            [ 0, 0, 0, 1, 2, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1, 1, 1],
+            [ 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 2, 1],
+            [ 2, 0, 0, 0, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+            [ 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 2, 0, 0, 2, 0, 0, 1],
+            [ 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1],
+            [ 1, 0, 0, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2],
+            [ 1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+            [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 0, 0],
+            [ 1, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 2, 1, 0, 0],
+            [ 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0],
+            [ 2, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0],
+            [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0],
+            [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0],
             ]
 
 #useful game dimensions
 TILESIZE = 80
 MAPWIDTH = 20
 MAPHEIGHT = 13
+
+class Camera():
+    def __init__(self):
+        self.x = 5000
+        self.y = 5000
+
+    def set_pos(self, x, y):
+        self.x = x
+        self.y = y
 
 #set up the display
 pygame.init()
