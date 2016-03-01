@@ -1,18 +1,15 @@
 import pygame, sys
 from pygame.locals import *
 
-#constants representing colours
 BLACK = (0,    0, 0 )
 BROWN = (153, 76, 0 )
 GREEN = (0,  255, 0 )
 BLUE  = (0,  0,  255)
 
-#constants represeting the different resources
 GRASS= 0
 ROAD = 1
 BUILD = 2
 
-#a dictionary linking resources to textures
 textures = {
                 GRASS : pygame.image.load('grass.jpg'),
                 ROAD : pygame.image.load('road.jpg'),
@@ -20,7 +17,6 @@ textures = {
 
             }
 
-# a list to representing our tilemap
 tilemap = [
             [ 0, 0, 0, 1, 2, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1, 1, 1],
             [ 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 2, 1],
@@ -37,7 +33,6 @@ tilemap = [
             [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0],
             ]
 
-#useful game dimensions
 TILESIZE = 70
 MAPWIDTH = 20
 MAPHEIGHT = 13
@@ -51,25 +46,17 @@ class Camera():
         self.x = x
         self.y = y
 
-#set up the display
 pygame.init()
 DISPLAYSURF = pygame.display.set_mode((MAPWIDTH*TILESIZE, MAPHEIGHT*TILESIZE))
 
 while True:
-    #get all the user events
     for event in pygame.event.get():
-        #if the user wants to quit
         if event.type == QUIT:
-            #end the game and close the window
             pygame.quit()
             sys.exit()
 
-    #loop through each row
     for row in range(MAPHEIGHT):
-        #loop through each column in the row
         for column in range(MAPWIDTH):
-           #draw the resource at that position in the tilemap, using correct image
             DISPLAYSURF.blit(textures[tilemap[row][column]], (column*TILESIZE, row*TILESIZE))
 
-    #update the display
     pygame.display.update()
