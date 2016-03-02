@@ -4,20 +4,19 @@ from pygame.locals import *
 BLACK = (0,    0, 0 )
 BROWN = (153, 76, 0 )
 GREEN = (0,  255, 0 )
-BLUE  = (0,  0,  255)
 
 GRASS= 0
 ROAD = 1
-BUILD = 2
+BUILDING = 2
 
-textures = {
+images = {
                 GRASS : pygame.image.load('grass.jpg'),
                 ROAD : pygame.image.load('road.jpg'),
-                BUILD : pygame.image.load('buildinggrass.jpg')
+                BUILDING : pygame.image.load('buildinggrass.jpg')
 
             }
 
-tilemap = [
+map = [
             [ 0, 0, 0, 1, 2, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1, 1, 1],
             [ 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 2, 1],
             [ 2, 0, 0, 0, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -33,9 +32,9 @@ tilemap = [
             [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0],
             ]
 
-TILESIZE = 70
-MAPWIDTH = 20
-MAPHEIGHT = 13
+TILES = 70 #TILESIZE
+MAPW = 20 #MAPWIDTH
+MAPH = 13 #MAPHEIGHT
 
 class Camera():
     def __init__(self):
@@ -47,7 +46,7 @@ class Camera():
         self.y = y
 
 pygame.init()
-DISPLAYSURF = pygame.display.set_mode((MAPWIDTH*TILESIZE, MAPHEIGHT*TILESIZE))
+DISPLAYSURF = pygame.display.set_mode((MAPW*TILES, MAPH*TILES))
 
 while True:
     for event in pygame.event.get():
@@ -55,8 +54,8 @@ while True:
             pygame.quit()
             sys.exit()
 
-    for row in range(MAPHEIGHT):
-        for column in range(MAPWIDTH):
-            DISPLAYSURF.blit(textures[tilemap[row][column]], (column*TILESIZE, row*TILESIZE))
+    for row in range(MAPH):
+        for column in range(MAPW):
+            DISPLAYSURF.blit(images[map[row][column]], (column*TILES, row*TILES))
 
     pygame.display.update()
