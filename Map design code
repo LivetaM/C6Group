@@ -36,16 +36,6 @@ TILES = 70 #TILESIZE
 MAPW = 20 #MAPWIDTH
 MAPH = 13 #MAPHEIGHT
 
-class Camera():
-    def __init__(self):
-        self.x = 5000
-        self.y = 5000
-
-    def set_pos(self, x, y):
-        self.x = x
-        self.y = y
-
-pygame.init()
 DISPLAYSURF = pygame.display.set_mode((MAPW*TILES, MAPH*TILES))
 
 while True:
