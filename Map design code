@@ -36,6 +36,7 @@ TILES = 70 #TILESIZE
 MAPW = 20 #MAPWIDTH
 MAPH = 13 #MAPHEIGHT
 
+pygame.init()
 DISPLAYSURF = pygame.display.set_mode((MAPW*TILES, MAPH*TILES))
 
 while True:
