@@ -1,28 +1,14 @@
 # C6Group
 ALL project 2.
 
-Python 3.4.4 version used
+Python 3.5.1 version used
 
-Libraries used: pygame, random, sys, pygame.locals, timer, math
+Libraries used: pygame, random, sys, pygame.locals, timer, math, tkinter
 
 
 To run the game download:
+[download Finalgame2.zip] (https://github.com/LivetaM/C6Group/blob/LivetaM-patch-1/FinalGame%202.zip)
 
-[timer.py] (https://github.com/LivetaM/C6Group/blob/master/timer.py)
-[player.py] (https://github.com/LivetaM/C6Group/blob/master/player.py)
-[map.py] (https://github.com/LivetaM/C6Group/blob/master/map.py)
-[main.py this is also the program which lunches whole game] (https://github.com/LivetaM/C6Group/blob/master/main.py)
-[image_loader.py] (https://github.com/LivetaM/C6Group/blob/master/image_loader.py)
-[finish.py] (https://github.com/LivetaM/C6Group/blob/master/finish.py)
-[dijkstras.py] (https://github.com/LivetaM/C6Group/blob/master/dijkstras.py)
-[camera.py] (https://github.com/LivetaM/C6Group/blob/master/camera.py)
-[SortingAlgorithms.py] (https://github.com/LivetaM/C6Group/blob/master/SortingAlgorithms.py)
-[Linearsearch.py] (https://github.com/LivetaM/C6Group/blob/master/LinearSearch.py)
-
-
-images:
-[road.jpg] (https://github.com/LivetaM/C6Group/blob/master/road.jpg)
-[grass.jpg] (https://github.com/LivetaM/C6Group/blob/master/grass.jpg)
 
 
 
@@ -32,5 +18,3 @@ Additonal information:
 [Addition ideas] (https://github.com/LivetaM/C6Group/blob/master/Additional%20ideas)
 [Storyboard] (https://github.com/LivetaM/C6Group/blob/master/storyboard.docx)
 [References] (https://github.com/LivetaM/C6Group/blob/master/all%20references)
-[Grass image] (https://github.com/LivetaM/C6Group/blob/master/grass.jpg)
-[Road image] (https://github.com/LivetaM/C6Group/blob/master/road.jpg)
