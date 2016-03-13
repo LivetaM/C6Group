@@ -3,7 +3,7 @@ ALL project 2.
 
 Python 3.4.4 version used
 
-Library used: pygame, random, sys, pygame.locals, timer, math
+Libraries used: pygame, random, sys, pygame.locals, timer, math
 
 
 To run the game download:
