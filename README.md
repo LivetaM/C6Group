@@ -1,9 +1,13 @@
 # C6Group
 ALL project 2.
+
 Python 3.4.4 version used
+
 Library used: pygame, random, sys, pygame.locals, timer, math
 
+
 To run the game download:
+
 [timer.py] (https://github.com/LivetaM/C6Group/blob/master/timer.py)
 [player.py] (https://github.com/LivetaM/C6Group/blob/master/player.py)
 [map.py] (https://github.com/LivetaM/C6Group/blob/master/map.py)
